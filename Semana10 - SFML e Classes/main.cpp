@@ -1,7 +1,8 @@
-#include "SFML/Graphics.hpp"
-#include "iostream"
-#include "time.h"
-#include "stdlib.h"
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
 
 using namespace sf;
 using namespace std;
@@ -9,18 +10,18 @@ using namespace std;
 class Ball {
   private:
     int time = 1;
-    float size = (15 + rand() % 35);
+    float size = (15 + rand() % 50);
     int posx;
     int posy;
-    int velx = -(1 + rand() % 15);
-    int vely = (1 + rand() % 15);
+    int velx = -(1 + rand() % 25);
+    int vely = (1 + rand() % 25);
     Color randColor = Color((rand() % 255), (rand() % 255), (rand() % 255));
     CircleShape shape;
 
   public:
     Ball (RenderWindow *window){
-      posx = window -> getSize().x / (1 + rand() % 5);
-      posy = window -> getSize().y / (1 + rand() % 5);
+      posx = window -> getSize().x / 2;
+      posy = window -> getSize().y / 2;
       
       shape.setRadius(size);
       shape.setFillColor(randColor);
@@ -30,15 +31,15 @@ class Ball {
   
   public:
     void defineVelocity (RenderWindow *window){
-      vely = posy < window -> getSize().y || posy < 0 ? vely: -vely;
-      velx = posx < window -> getSize().x || posx < 0 ? velx: -velx;
+      vely = posy < window -> getSize().y && posy > 0 ? vely: -vely;
+      velx = posx < window -> getSize().x && posx > 0 ? velx: -velx;
     }
     
     void definePosition (RenderWindow *window){
       defineVelocity(window);
       
-      posy = posy + (vely * time);
-      posx = posx + (velx * time);
+      posy = posy + vely * time;
+      posx = posx + velx * time;
       
       shape.setPosition(posx, posy);
     }
@@ -56,7 +57,11 @@ int main() {
 
   RenderWindow window(VideoMode(640, 480), "Bolinhas com OOP");
   
-  Ball bolaTeste(&window);
+  vector<Ball> bolinhas;
+
+  for (int i; i < 3; i++){
+    bolinhas.push_back(Ball(&window));
+  }
 
   while (window.isOpen()){
     Event event;
@@ -68,9 +73,13 @@ int main() {
     }
 
     window.clear();
-    bolaTeste.renderBall(&window);
+
+    for (auto& ball : bolinhas){
+      ball.renderBall(&window);
+    }
+
     window.display();
-    sleep(milliseconds(20.0f));
+    sleep(milliseconds(30.0f));
   }
 
   return 0;
