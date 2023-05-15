@@ -1,7 +1,7 @@
 # Bolinhas com OOP + SFML
 #### Minha primeira atividade usando SFML em C++
 
-Este programa é um programa simples usando a biblioteca SFML para renderizar múltiplas bolinhas coloridas em uma janela.
+Este é um programa simples usando a biblioteca SFML para renderizar múltiplas bolinhas coloridas em uma janela.
 
 ## Explicação do programa
 ### Classes
@@ -12,7 +12,7 @@ Este programa é um programa simples usando a biblioteca SFML para renderizar m�
 
 ## Notas
 - O programa foi desenvolvido utilizando o editor LunarVim e foi testado apenas no Fedora Linux 37 (KDE Spin) com Kernel 6.2.14
-- Para compilação foram utilizados tanto o G++ quanto o Clang++. Certifique de ter um dos comipiladores instalados no seu sistema
+- Para compilação foram utilizados tanto o G++ quanto o Clang++. Certifique de ter um dos compiladores instalados no seu sistema
 
 ## Rodando Localmente
 
@@ -36,7 +36,7 @@ g++ main.cpp -o a.out -lsfml-system -lsfml-window -lsfml-graphics
 ```
 - Usando o Clang++
 ```
-g++ main.cpp -o a.out -lsfml-system -lsfml-window -lsfml-graphics
+clang++ main.cpp -lsfml-system -lsfml-window -lsfml-graphics
 ```
 
 3. Execute o programa
