@@ -1,4 +1,8 @@
-a.out
-.out
-.zip
+# Ignorando executaveis
+*.out
+*.exe
+*.app
 
+#Ignorando arquivos da escola
+*.pdf
+*.zip
