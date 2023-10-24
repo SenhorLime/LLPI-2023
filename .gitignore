@@ -1,9 +1,19 @@
+# Ignorando arquivos da IDE
+/.idea
+/cmake-build-debug
+/.settings
+/.cproject
+/.project
+/Debug
+/build
+CMakeLists.txt
+
 # Ignorando executaveis
 *.out
 *.exe
 *.app
 
-#Ignorando arquivos da escola
+# Ignorando arquivos da escola
 *.pdf
 *.zip
 *.rar
