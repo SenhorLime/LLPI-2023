@@ -71,10 +71,6 @@ public:
 		return clonado;
 	}
 
-    std::string getPais() {
-        return pais;
-    }
-
 	bool operator>(const Funcionario &outroFuncionario) {
 		return identificador > outroFuncionario.identificador;
 	}
@@ -132,9 +128,10 @@ int main() {
 //	Questao 06
 	std::string saveOnFile;
 	for (auto funcionario : funcionarioLista) {
-        if (funcionario.getPais() == "Brazil") {
-            saveOnFile += funcionario.toString();
-            saveOnFile += "\n";
+        std::regex tags("Brazil");
+
+        if (std::regex_search(funcionario.toString(), tags)) {
+            saveOnFile += funcionario.toString() += "\n";
         }
 	}
 
