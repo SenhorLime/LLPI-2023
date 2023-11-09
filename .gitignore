@@ -1,11 +1,11 @@
 # Ignorando arquivos da IDE
-/.idea
-/cmake-build-debug
-/.settings
-/.cproject
-/.project
-/Debug
-/build
+*/.idea
+*/cmake-build-debug
+*/.settings
+*/.cproject
+*/.project
+*/Debug
+*/build
 CMakeLists.txt
 
 # Ignorando executaveis
